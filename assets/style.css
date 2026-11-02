@@ -106,17 +106,22 @@ code {
 
 /* ——— stats ——— */
 .stats {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 1px;
-  background: var(--card-edge);
-  border-block: 1px solid var(--card-edge);
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.1rem;
 }
 .stat {
   background: var(--bg-soft);
-  padding: 1.6rem 1.4rem;
+  border: 1px solid var(--card-edge);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.4rem;
   display: flex; flex-direction: column; gap: 0.25rem;
+  transition: border-color 0.18s ease, transform 0.18s ease;
 }
+.stat:hover { border-color: rgba(79, 195, 247, 0.55); transform: translateY(-3px); }
 .stat-num {
   font-size: 2rem; font-weight: 800;
   color: var(--accent);
