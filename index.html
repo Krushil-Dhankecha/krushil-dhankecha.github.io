@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Krushil Dhankecha — AI &amp; Python Engineer</title>
-<meta name="description" content="Krushil Dhankecha — AI & Python engineer. 12 pull requests merged into Docling, LangChain, xberg and IBM CUGA, seven of them shipped in tagged releases. Builder of RAG, ML and automation systems.">
+<meta name="description" content="Krushil Dhankecha — AI & Python engineer. 12 pull requests merged into Docling, LangChain, xberg and IBM CUGA, nine of them shipped in tagged releases. Builder of RAG, ML and automation systems.">
 <meta property="og:title" content="Krushil Dhankecha — AI & Python Engineer">
-<meta property="og:description" content="12 PRs merged into Docling (70k★), LangChain, xberg and IBM CUGA — seven shipped in tagged Docling releases. Builder of RAG, ML and trading systems.">
+<meta property="og:description" content="12 PRs merged into Docling (70k★), LangChain, xberg and IBM CUGA — nine shipped in tagged releases. Builder of RAG, ML and trading systems.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,8 +52,8 @@
     <span class="stat-label">PRs merged into external open-source projects</span>
   </div>
   <div class="stat">
-    <span class="stat-num">7</span>
-    <span class="stat-label">of them live in tagged Docling releases (v2.145 &rarr; v2.148)</span>
+    <span class="stat-num">9</span>
+    <span class="stat-label">of them live in tagged releases of Docling, LangChain &amp; xberg</span>
   </div>
   <div class="stat">
     <span class="stat-num">22</span>
@@ -80,9 +80,10 @@
   </p>
 
   <p class="ship-note">
-    <strong>Seven are live in tagged Docling releases</strong> (v2.145.0 &rarr; v2.148.0), a package
-    pulling <strong>2.9M installs a month</strong>. The rest are merged into <code>main</code> and
-    waiting on their project&rsquo;s next release.
+    <strong>Nine are live in tagged releases</strong> &mdash; seven in Docling v2.145.0 &rarr; v2.148.0,
+    a package pulling <strong>2.9M installs a month</strong>, plus langchain-redis v0.3.0 and
+    xberg v1.4.0. The remaining three are merged into CUGA Apps&rsquo; <code>main</code> and waiting
+    on its next release.
   </p>
 
   <div class="cards">
@@ -145,7 +146,7 @@
       <ul class="card-list">
         <li>
           <a href="https://github.com/langchain-ai/langchain-redis/pull/226" target="_blank" rel="noopener">#226</a>
-          <span class="ship ship-pending">next release</span>
+          <span class="ship">v0.3.0</span>
           On a JSON-storage index, <code>similarity_search_with_score(return_all=True)</code> passed the
           hit ids straight to <code>JSON.MGET</code>, which takes one or more keys &mdash; so a search that
           matched nothing raised <code>wrong number of arguments</code> instead of returning no documents.
@@ -164,7 +165,7 @@
       <ul class="card-list">
         <li>
           <a href="https://github.com/xberg-io/xberg/pull/2330" target="_blank" rel="noopener">#2330</a>
-          <span class="ship ship-pending">next release</span>
+          <span class="ship">v1.4.0</span>
           Found and fixed a u64 timestamp-arithmetic overflow panic plus undecoded speaker
           annotations in the WebVTT parser. <strong>Merged 43 minutes after opening.</strong>
         </li>
