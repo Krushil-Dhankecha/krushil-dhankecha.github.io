@@ -147,11 +147,9 @@
         <li>
           <a href="https://github.com/langchain-ai/langchain-redis/pull/226" target="_blank" rel="noopener">#226</a>
           <span class="ship">v0.3.0</span>
-          On a JSON-storage index, <code>similarity_search_with_score(return_all=True)</code> passed the
-          hit ids straight to <code>JSON.MGET</code>, which takes one or more keys &mdash; so a search that
-          matched nothing raised <code>wrong number of arguments</code> instead of returning no documents.
-          An empty index, an over-restrictive filter and a <code>distance_threshold</code> that excludes
-          everything all landed there. Closed upstream issue #225.
+          A JSON-index search that matched nothing handed an empty id list to <code>JSON.MGET</code>, so
+          <code>similarity_search_with_score</code> raised <code>wrong number of arguments</code> instead
+          of returning no documents. Closed upstream issue #225.
         </li>
       </ul>
     </article>
@@ -393,6 +391,30 @@
     for (const e of entries) if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Long contribution lists make one card tower over the rest of its row.
+  // Show the first few and put the remainder behind a toggle. Done in JS so
+  // that with scripting off the full list is still in the page.
+  const SHOWN = 2;
+  // .card-wide spans the whole row, so its height costs nothing — leave it open.
+  document.querySelectorAll('#opensource .card:not(.card-wide) .card-list').forEach(list => {
+    const extra = [...list.children].slice(SHOWN);
+    if (extra.length < 2) return;          // not worth a button to hide one line
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'card-more';
+
+    const setOpen = (open) => {
+      extra.forEach(li => { li.hidden = !open; });
+      btn.textContent = open ? 'Show less' : `Show ${extra.length} more`;
+      btn.setAttribute('aria-expanded', String(open));
+    };
+
+    setOpen(false);
+    btn.addEventListener('click', () => setOpen(btn.getAttribute('aria-expanded') !== 'true'));
+    list.after(btn);
+  });
 </script>
 </body>
 </html>
