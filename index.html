@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Krushil Dhankecha — AI &amp; Python Engineer</title>
-<meta name="description" content="Krushil Dhankecha — AI & Python engineer. Open-source contributor to Docling, CrewAI, Unstructured and more. Builder of RAG, ML and automation systems.">
+<meta name="description" content="Krushil Dhankecha — AI & Python engineer. 12 pull requests merged into Docling, LangChain, xberg and IBM CUGA, nine of them shipped in tagged releases. Builder of RAG, ML and automation systems.">
 <meta property="og:title" content="Krushil Dhankecha — AI & Python Engineer">
-<meta property="og:description" content="Open-source contributor to Docling (70k★), CrewAI, Unstructured. Builder of RAG, ML and trading systems.">
+<meta property="og:description" content="12 PRs merged into Docling (70k★), LangChain, xberg and IBM CUGA — nine shipped in tagged releases. Builder of RAG, ML and trading systems.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,16 +48,20 @@
 
 <section class="stats reveal">
   <div class="stat">
-    <span class="stat-num">7+</span>
+    <span class="stat-num">12</span>
     <span class="stat-label">PRs merged into external open-source projects</span>
   </div>
   <div class="stat">
-    <span class="stat-num">155k+</span>
-    <span class="stat-label">combined GitHub stars of projects contributed to</span>
+    <span class="stat-num">9</span>
+    <span class="stat-label">of them live in tagged releases of Docling, LangChain &amp; xberg</span>
   </div>
   <div class="stat">
-    <span class="stat-num">13</span>
-    <span class="stat-label">bugs found, reported &amp; fixed through my own code audits</span>
+    <span class="stat-num">22</span>
+    <span class="stat-label">PRs in review across CrewAI, Unstructured, pandera &amp; Docling</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">164k&#9733;</span>
+    <span class="stat-label">combined stars of the repos I&rsquo;ve shipped or submitted code to</span>
   </div>
   <div class="stat">
     <span class="stat-num">15+</span>
@@ -70,29 +74,64 @@
 <section id="opensource" class="section reveal">
   <h2><span class="section-kicker">01</span> Open-Source Contributions</h2>
   <p class="section-lead">
-    Merged pull requests in production AI frameworks — found by auditing code, reproduced with
-    failing tests, and defended through maintainer review.
+    12 pull requests merged into other people&rsquo;s production code. Most were bugs I found by
+    reading the source, reproduced with a failing test, and defended through maintainer review.
+    The badge on each one is the release it shipped in &mdash; the version people install.
+  </p>
+
+  <p class="ship-note">
+    <strong>Nine are live in tagged releases</strong> &mdash; seven in Docling v2.145.0 &rarr; v2.148.0,
+    a package pulling <strong>2.9M installs a month</strong>, plus langchain-redis v0.3.0 and
+    xberg v1.4.0. The remaining three are merged into CUGA Apps&rsquo; <code>main</code> and waiting
+    on its next release.
   </p>
 
   <div class="cards">
     <article class="card">
       <div class="card-head">
-        <h3>Docling <span class="star-badge">★ 70k</span></h3>
-        <span class="tag tag-merged">2 merged</span>
+        <h3>Docling <span class="star-badge">&#9733; 70k</span></h3>
+        <span class="tag tag-merged">7 merged &middot; all shipped</span>
       </div>
-      <p class="card-org">IBM's document-AI toolkit for LLM pipelines</p>
+      <p class="card-org">IBM&rsquo;s document-AI toolkit for LLM pipelines &middot; 2.9M installs/month</p>
       <ul class="card-list">
         <li>
+          <a href="https://github.com/docling-project/docling/pull/5170" target="_blank" rel="noopener">#5170</a>
+          <span class="ship">v2.148.0</span>
+          EPUB cross-document links written inside single quotes resolved to nothing; now reduced to their anchor.
+        </li>
+        <li>
+          <a href="https://github.com/docling-project/docling/pull/5168" target="_blank" rel="noopener">#5168</a>
+          <span class="ship">v2.148.0</span>
+          An EPUB whose package-document path carries percent-escapes could not be opened at all until the path was decoded.
+        </li>
+        <li>
+          <a href="https://github.com/docling-project/docling/pull/5149" target="_blank" rel="noopener">#5149</a>
+          <span class="ship">v2.148.0</span>
+          METS pages whose <code>div</code> has no usable <code>ORDER</code> stay loadable instead of taking the document down.
+        </li>
+        <li>
+          <a href="https://github.com/docling-project/docling/pull/5147" target="_blank" rel="noopener">#5147</a>
+          <span class="ship">v2.147.0</span>
+          A dots table too large for the VLM backend discarded the whole page; the page now survives the table.
+        </li>
+        <li>
+          <a href="https://github.com/docling-project/docling/pull/5119" target="_blank" rel="noopener">#5119</a>
+          <span class="ship">v2.147.0</span>
+          BoxNote image captions were parented to the document rather than to the picture they caption.
+        </li>
+        <li>
           <a href="https://github.com/docling-project/docling/pull/5087" target="_blank" rel="noopener">#5087</a>
-          Fixed a crash converting Apple iWork files whose date cells hold spans outside
-          <code>datetime</code> range — found the bug myself, filed the issue, shipped the fix.
+          <span class="ship">v2.146.0</span>
+          Crash converting Apple iWork files whose date cells hold spans outside <code>datetime</code>
+          range &mdash; found the bug myself, filed the issue, shipped the fix.
         </li>
         <li>
           <a href="https://github.com/docling-project/docling/pull/5067" target="_blank" rel="noopener">#5067</a>
+          <span class="ship">v2.145.0</span>
           Wired temperature &amp; anti-hallucination options through to the MLX Whisper ASR backend.
         </li>
         <li class="muted">
-          Co-author credit in docling-core commit <code>2444084</code> — my table-grid handling was
+          Co-author credit in docling-core commit <code>2444084</code> &mdash; my table-grid handling was
           adopted into a maintainer-endorsed fix.
         </li>
       </ul>
@@ -100,13 +139,33 @@
 
     <article class="card">
       <div class="card-head">
-        <h3>xberg <span class="star-badge">★ 9.5k</span></h3>
-        <span class="tag tag-merged">merged · Rust</span>
+        <h3>langchain-redis <span class="star-badge">LangChain</span></h3>
+        <span class="tag tag-merged">merged</span>
+      </div>
+      <p class="card-org">Official Redis integration for LangChain &middot; 84k installs/month</p>
+      <ul class="card-list">
+        <li>
+          <a href="https://github.com/langchain-ai/langchain-redis/pull/226" target="_blank" rel="noopener">#226</a>
+          <span class="ship">v0.3.0</span>
+          On a JSON-storage index, <code>similarity_search_with_score(return_all=True)</code> passed the
+          hit ids straight to <code>JSON.MGET</code>, which takes one or more keys &mdash; so a search that
+          matched nothing raised <code>wrong number of arguments</code> instead of returning no documents.
+          An empty index, an over-restrictive filter and a <code>distance_threshold</code> that excludes
+          everything all landed there. Closed upstream issue #225.
+        </li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <h3>xberg <span class="star-badge">&#9733; 9.5k</span></h3>
+        <span class="tag tag-merged">merged &middot; Rust</span>
       </div>
       <p class="card-org">High-performance text-extraction engine (Rust core)</p>
       <ul class="card-list">
         <li>
           <a href="https://github.com/xberg-io/xberg/pull/2330" target="_blank" rel="noopener">#2330</a>
+          <span class="ship">v1.4.0</span>
           Found and fixed a u64 timestamp-arithmetic overflow panic plus undecoded speaker
           annotations in the WebVTT parser. <strong>Merged 43 minutes after opening.</strong>
         </li>
@@ -118,41 +177,59 @@
         <h3>CUGA Apps <span class="star-badge">IBM Research</span></h3>
         <span class="tag tag-merged">3 merged</span>
       </div>
-      <p class="card-org">Agent applications for IBM's CUGA generalist-agent stack</p>
+      <p class="card-org">Agent applications for IBM&rsquo;s CUGA generalist-agent stack &middot; deployed from <code>main</code></p>
       <ul class="card-list">
         <li>
           <a href="https://github.com/cuga-project/cuga-apps/pull/68" target="_blank" rel="noopener">#68</a>
-          Rate-limit middleware silently re-executed endpoints that raised — self-found, with regression tests.
+          <span class="ship">on main</span>
+          Rate-limit middleware silently re-executed endpoints that raised &mdash; self-found, with regression tests.
         </li>
         <li>
           <a href="https://github.com/cuga-project/cuga-apps/pull/65" target="_blank" rel="noopener">#65</a>
+          <span class="ship">on main</span>
           Pinned <code>mcp&lt;2.0</code> so every FastMCP server in the repo keeps starting.
         </li>
         <li>
           <a href="https://github.com/cuga-project/cuga-apps/pull/64" target="_blank" rel="noopener">#64</a>
+          <span class="ship">on main</span>
           Markdown table rendering in agent answers.
+        </li>
+        <li class="muted">
+          Plus <a href="https://github.com/theluckystrike/100xagenticdev/pull/5" target="_blank" rel="noopener">100xagenticdev #5</a>
+          &mdash; unit tests for <code>build_preset_tasks</code>.
         </li>
       </ul>
     </article>
 
-    <article class="card">
+    <article class="card card-wide">
       <div class="card-head">
         <h3>In review right now</h3>
-        <span class="tag tag-open">10+ open PRs</span>
+        <span class="tag tag-open">22 open PRs</span>
       </div>
-      <p class="card-org">CrewAI (60k★) · Unstructured (15k★) · docling-core · CUGA</p>
+      <p class="card-org">
+        CrewAI (61k&#9733;) &middot; Unstructured (16k&#9733;) &middot; pandera (4.5k&#9733;) &middot;
+        docling-serve (1.9k&#9733;) &middot; CUGA Agent (1.1k&#9733;) &middot; docling-core
+      </p>
       <ul class="card-list">
         <li>
           <a href="https://github.com/crewAIInc/crewAI/pull/8931" target="_blank" rel="noopener">crewAI #8931</a>
-          A2A servers rejected file uploads carrying a <code>charset</code> parameter — RFC 2045 MIME matching fix.
+          A2A servers rejected file uploads carrying a <code>charset</code> parameter &mdash; RFC 2045 MIME matching fix.
         </li>
         <li>
           <a href="https://github.com/Unstructured-IO/unstructured/pull/4646" target="_blank" rel="noopener">unstructured #4646</a>
           Streaming diagnostic that warns when spreadsheet formula cells silently read as empty.
         </li>
         <li>
+          <a href="https://github.com/unionai-oss/pandera/pull/2660" target="_blank" rel="noopener">pandera #2660</a>
+          Schema round-trips lost non-finite float bounds; now rendered as expressions that survive serialization.
+        </li>
+        <li>
+          <a href="https://github.com/docling-project/docling-serve/pull/753" target="_blank" rel="noopener">docling-serve #753</a>
+          The service now keeps starting when an undeclared version lookup fails.
+        </li>
+        <li>
           <a href="https://github.com/Krushil-Dhankecha?tab=overview" target="_blank" rel="noopener" class="more-link">
-            Full activity on GitHub →
+            Full activity on GitHub &rarr;
           </a>
         </li>
       </ul>
