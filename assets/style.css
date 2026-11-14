@@ -203,22 +203,23 @@ code {
 .card-list { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
 .card-list li { color: var(--text-dim); font-size: 0.92rem; padding-left: 1rem; position: relative; overflow-wrap: anywhere; }
 .card-list li[hidden] { display: none; }
+/* Reads as one of the PR links above it, not as a control: same mono face,
+   weight and accent, and the 1rem indent clears the ▸ the entries use. */
 .card-more {
   align-self: flex-start;
-  margin-top: 0.15rem;
-  padding: 0.32rem 0.7rem;
+  margin-top: 0.1rem;
+  padding: 0 0 0 1rem;
   font-family: var(--mono);
-  font-size: 0.8rem;
+  font-size: 0.92rem;
   font-weight: 600;
-  color: var(--text-dim);
+  line-height: 1.6;
+  color: var(--accent);
   background: transparent;
-  border: 1px solid var(--card-edge);
-  border-radius: 6px;
+  border: 0;
   cursor: pointer;
-  transition: color 0.15s ease, border-color 0.15s ease;
 }
 .card-more:hover,
-.card-more:focus-visible { color: var(--accent); border-color: rgba(79, 195, 247, 0.55); }
+.card-more:focus-visible { text-decoration: underline; }
 .card-list li::before { content: "▸"; color: var(--accent); position: absolute; left: 0; }
 .card-list a { font-family: var(--mono); font-weight: 600; }
 .muted { opacity: 0.75; }

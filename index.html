@@ -407,7 +407,9 @@
 
     const setOpen = (open) => {
       extra.forEach(li => { li.hidden = !open; });
-      btn.textContent = open ? 'Show less' : `Show ${extra.length} more`;
+      btn.textContent = open ? 'less' : 'more';
+      // The visible word is deliberately bare; screen readers get the count.
+      btn.setAttribute('aria-label', open ? 'Show less' : `Show ${extra.length} more`);
       btn.setAttribute('aria-expanded', String(open));
     };
 
