@@ -48,19 +48,19 @@
 
 <section class="stats reveal">
   <div class="stat">
-    <span class="stat-num">12</span>
+    <span class="stat-num">18</span>
     <span class="stat-label">PRs merged into external open-source projects</span>
   </div>
   <div class="stat">
-    <span class="stat-num">9</span>
-    <span class="stat-label">of them live in tagged releases of Docling, LangChain &amp; xberg</span>
+    <span class="stat-num">13</span>
+    <span class="stat-label">of them live in tagged releases of Docling, pypdf, LangChain &amp; xberg</span>
   </div>
   <div class="stat">
-    <span class="stat-num">22</span>
+    <span class="stat-num">29</span>
     <span class="stat-label">PRs in review across CrewAI, Unstructured, pandera &amp; Docling</span>
   </div>
   <div class="stat">
-    <span class="stat-num">164k&#9733;</span>
+    <span class="stat-num">199k&#9733;</span>
     <span class="stat-label">combined stars of the repos I&rsquo;ve shipped or submitted code to</span>
   </div>
   <div class="stat">
@@ -74,16 +74,16 @@
 <section id="opensource" class="section reveal">
   <h2><span class="section-kicker">01</span> Open-Source Contributions</h2>
   <p class="section-lead">
-    12 pull requests merged into other people&rsquo;s production code. Most were bugs I found by
+    18 pull requests merged into other people&rsquo;s production code. Most were bugs I found by
     reading the source, reproduced with a failing test, and defended through maintainer review.
     The badge on each one is the release it shipped in &mdash; the version people install.
   </p>
 
   <p class="ship-note">
-    <strong>Nine are live in tagged releases</strong> &mdash; seven in Docling v2.145.0 &rarr; v2.148.0,
-    a package pulling <strong>2.9M installs a month</strong>, plus langchain-redis v0.3.0 and
-    xberg v1.4.0. The remaining three are merged into CUGA Apps&rsquo; <code>main</code> and waiting
-    on its next release.
+    <strong>Thirteen are live in tagged releases</strong> &mdash; seven in Docling v2.145.0 &rarr; v2.148.0,
+    two in pypdf 7.1.0 and 7.1.1, a package pulling <strong>202M installs a month</strong>, plus
+    docling-core v2.107.1, langchain-redis v0.3.0 and v0.3.1, and xberg v1.4.0. The other five are
+    merged into <code>main</code> at CUGA Apps, txtai and 100xagenticdev, waiting on their next release.
   </p>
 
   <div class="cards">
@@ -139,17 +139,89 @@
 
     <article class="card">
       <div class="card-head">
-        <h3>langchain-redis <span class="star-badge">LangChain</span></h3>
-        <span class="tag tag-merged">merged</span>
+        <h3>pypdf <span class="star-badge">&#9733; 10k</span></h3>
+        <span class="tag tag-merged">2 merged &middot; both shipped</span>
       </div>
-      <p class="card-org">Official Redis integration for LangChain &middot; 84k installs/month</p>
+      <p class="card-org">The PDF library most of Python reads PDFs with &middot; 202M installs/month</p>
       <ul class="card-list">
+        <li>
+          <a href="https://github.com/py-pdf/pypdf/pull/4406" target="_blank" rel="noopener">#4406</a>
+          <span class="ship">v7.1.1</span>
+          Decimal page labels came back as <code>0</code> or negative, because that one numbering style
+          mapped to the builtin <code>str</code>, which cannot fail &mdash; so an out-of-range page number
+          was formatted and returned where every other style raised and fell back to the page position.
+        </li>
+        <li>
+          <a href="https://github.com/py-pdf/pypdf/pull/4411" target="_blank" rel="noopener">#4411</a>
+          <span class="ship">v7.1.0</span>
+          <code>PageRange</code> did not survive its own round trip: the empty range before the last page
+          printed as <code>-1</code>, which reads back as the last page, turning &ldquo;no pages&rdquo; into one page.
+        </li>
+        <li class="muted">
+          Two more open in review, both found the same way &mdash; reading a module nobody had touched
+          and asking what the code answers wrongly rather than where it crashes.
+        </li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <h3>langchain-redis <span class="star-badge">LangChain</span></h3>
+        <span class="tag tag-merged">2 merged &middot; both shipped</span>
+      </div>
+      <p class="card-org">Official Redis integration for LangChain &middot; 124k installs/month</p>
+      <ul class="card-list">
+        <li>
+          <a href="https://github.com/langchain-ai/langchain-redis/pull/243" target="_blank" rel="noopener">#243</a>
+          <span class="ship">v0.3.1</span>
+          <code>RedisCache.clear()</code> pasted the cache prefix straight into a <code>SCAN MATCH</code>
+          glob, so a prefix holding <code>*</code>, <code>?</code> or <code>[</code> scanned for keys the
+          cache had never written and left its own entries behind. The escaping has to happen after
+          encoding, because Redis matches the pattern against raw key bytes.
+        </li>
         <li>
           <a href="https://github.com/langchain-ai/langchain-redis/pull/226" target="_blank" rel="noopener">#226</a>
           <span class="ship">v0.3.0</span>
           A JSON-index search that matched nothing handed an empty id list to <code>JSON.MGET</code>, so
           <code>similarity_search_with_score</code> raised <code>wrong number of arguments</code> instead
           of returning no documents. Closed upstream issue #225.
+        </li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <h3>docling-core <span class="star-badge">IBM</span></h3>
+        <span class="tag tag-merged">merged &middot; shipped</span>
+      </div>
+      <p class="card-org">The document model every Docling pipeline is built on &middot; 6.5M installs/month</p>
+      <ul class="card-list">
+        <li>
+          <a href="https://github.com/docling-project/docling-core/pull/935" target="_blank" rel="noopener">#935</a>
+          <span class="ship">v2.107.1</span>
+          A WebVTT caption carrying a ruby annotation was dropped whole instead of parsed, so the
+          transcript lost the line rather than the markup. Found it myself, filed the issue, shipped the fix.
+        </li>
+        <li class="muted">
+          Three more open in review, plus co-author credit in commit <code>2444084</code>.
+        </li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <h3>txtai <span class="star-badge">&#9733; 13.6k</span></h3>
+        <span class="tag tag-merged">merged</span>
+      </div>
+      <p class="card-org">All-in-one embeddings database for semantic search and RAG</p>
+      <ul class="card-list">
+        <li>
+          <a href="https://github.com/neuml/txtai/pull/1589" target="_blank" rel="noopener">#1589</a>
+          <span class="ship">on master</span>
+          The SQL parser tested its alias keyword without lowering the token, so <code>select a as from</code>
+          raised the dangling-alias error and <code>select a AS from</code> slipped through &mdash; against
+          the repo&rsquo;s own stated case-insensitivity. Reshaped on maintainer request so the keyword tests
+          live with the other token tests.
         </li>
       </ul>
     </article>
@@ -202,11 +274,12 @@
     <article class="card card-wide">
       <div class="card-head">
         <h3>In review right now</h3>
-        <span class="tag tag-open">22 open PRs</span>
+        <span class="tag tag-open">29 open PRs</span>
       </div>
       <p class="card-org">
-        CrewAI (61k&#9733;) &middot; Unstructured (16k&#9733;) &middot; pandera (4.5k&#9733;) &middot;
-        docling-serve (1.9k&#9733;) &middot; CUGA Agent (1.1k&#9733;) &middot; docling-core
+        CrewAI (61k&#9733;) &middot; Unstructured (16k&#9733;) &middot; pdfplumber (11k&#9733;) &middot;
+        pypdf (10k&#9733;) &middot; pandera (4.5k&#9733;) &middot; docling-serve (1.9k&#9733;) &middot;
+        Docling &middot; docling-core
       </p>
       <ul class="card-list">
         <li>
@@ -222,8 +295,17 @@
           Schema round-trips lost non-finite float bounds; now rendered as expressions that survive serialization.
         </li>
         <li>
-          <a href="https://github.com/docling-project/docling-serve/pull/753" target="_blank" rel="noopener">docling-serve #753</a>
-          The service now keeps starting when an undeclared version lookup fails.
+          <a href="https://github.com/jsvine/pdfplumber/pull/1436" target="_blank" rel="noopener">pdfplumber #1436</a>
+          Annotation rotation was measured against a crop of a rotated page instead of the page itself.
+        </li>
+        <li>
+          <a href="https://github.com/py-pdf/pypdf/pull/4453" target="_blank" rel="noopener">pypdf #4453</a>
+          Page-label entries stored as indirect objects were read unresolved, so a valid file&rsquo;s labels
+          came back as plain page numbers.
+        </li>
+        <li>
+          <a href="https://github.com/docling-project/docling-serve/pull/767" target="_blank" rel="noopener">docling-serve #767</a>
+          A conversion that failed answered 404 "wait for completion" instead of 500 with the recorded error.
         </li>
         <li>
           <a href="https://github.com/Krushil-Dhankecha?tab=overview" target="_blank" rel="noopener" class="more-link">
