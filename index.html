@@ -93,7 +93,7 @@
         <span class="tag tag-merged">7 merged &middot; all shipped</span>
       </div>
       <p class="card-org">IBM&rsquo;s document-AI toolkit for LLM pipelines &middot; 2.9M installs/month</p>
-      <ul class="card-list">
+      <ul class="card-list" tabindex="0" aria-label="Docling contributions, scrollable">
         <li>
           <a href="https://github.com/docling-project/docling/pull/5170" target="_blank" rel="noopener">#5170</a>
           <span class="ship">v2.148.0</span>
@@ -130,10 +130,6 @@
           <span class="ship">v2.145.0</span>
           Wired temperature &amp; anti-hallucination options through to the MLX Whisper ASR backend.
         </li>
-        <li class="muted">
-          Co-author credit in docling-core commit <code>2444084</code> &mdash; my table-grid handling was
-          adopted into a maintainer-endorsed fix.
-        </li>
       </ul>
     </article>
 
@@ -143,7 +139,7 @@
         <span class="tag tag-merged">2 merged &middot; both shipped</span>
       </div>
       <p class="card-org">The PDF library most of Python reads PDFs with &middot; 202M installs/month</p>
-      <ul class="card-list">
+      <ul class="card-list" tabindex="0" aria-label="pypdf contributions, scrollable">
         <li>
           <a href="https://github.com/py-pdf/pypdf/pull/4406" target="_blank" rel="noopener">#4406</a>
           <span class="ship">v7.1.1</span>
@@ -170,7 +166,7 @@
         <span class="tag tag-merged">2 merged &middot; both shipped</span>
       </div>
       <p class="card-org">Official Redis integration for LangChain &middot; 124k installs/month</p>
-      <ul class="card-list">
+      <ul class="card-list" tabindex="0" aria-label="langchain-redis contributions, scrollable">
         <li>
           <a href="https://github.com/langchain-ai/langchain-redis/pull/243" target="_blank" rel="noopener">#243</a>
           <span class="ship">v0.3.1</span>
@@ -189,84 +185,52 @@
       </ul>
     </article>
 
-    <article class="card">
+    <article class="card card-wide">
       <div class="card-head">
-        <h3>docling-core <span class="star-badge">IBM</span></h3>
-        <span class="tag tag-merged">merged &middot; shipped</span>
+        <h3>Also merged</h3>
+        <span class="tag tag-merged">7 merged &middot; 2 shipped</span>
       </div>
-      <p class="card-org">The document model every Docling pipeline is built on &middot; 6.5M installs/month</p>
+      <p class="card-org">
+        Smaller repos, same routine &mdash; find the bug, file the issue, send the test with the fix.
+      </p>
       <ul class="card-list">
         <li>
-          <a href="https://github.com/docling-project/docling-core/pull/935" target="_blank" rel="noopener">#935</a>
+          <a href="https://github.com/cuga-project/cuga-apps/pulls?q=is%3Apr+author%3AKrushil-Dhankecha+is%3Amerged" target="_blank" rel="noopener">CUGA Apps &times;3</a>
+          <span class="ship">on main</span>
+          IBM Research&rsquo;s agent applications &mdash; rate-limit middleware re-running endpoints that raised
+          (<a href="https://github.com/cuga-project/cuga-apps/pull/68" target="_blank" rel="noopener">#68</a>),
+          an <code>mcp&lt;2.0</code> pin that keeps every FastMCP server starting
+          (<a href="https://github.com/cuga-project/cuga-apps/pull/65" target="_blank" rel="noopener">#65</a>),
+          and markdown tables in agent answers
+          (<a href="https://github.com/cuga-project/cuga-apps/pull/64" target="_blank" rel="noopener">#64</a>).
+        </li>
+        <li>
+          <a href="https://github.com/docling-project/docling-core/pull/935" target="_blank" rel="noopener">docling-core #935</a>
           <span class="ship">v2.107.1</span>
-          A WebVTT caption carrying a ruby annotation was dropped whole instead of parsed, so the
-          transcript lost the line rather than the markup. Found it myself, filed the issue, shipped the fix.
+          The document model under every Docling pipeline, 6.5M installs a month: a WebVTT caption carrying
+          a ruby annotation was dropped whole instead of parsed. Plus co-author credit in commit <code>2444084</code>.
         </li>
-        <li class="muted">
-          Three more open in review, plus co-author credit in commit <code>2444084</code>.
-        </li>
-      </ul>
-    </article>
-
-    <article class="card">
-      <div class="card-head">
-        <h3>txtai <span class="star-badge">&#9733; 13.6k</span></h3>
-        <span class="tag tag-merged">merged</span>
-      </div>
-      <p class="card-org">All-in-one embeddings database for semantic search and RAG</p>
-      <ul class="card-list">
         <li>
-          <a href="https://github.com/neuml/txtai/pull/1589" target="_blank" rel="noopener">#1589</a>
-          <span class="ship">on master</span>
-          The SQL parser tested its alias keyword without lowering the token, so <code>select a as from</code>
-          raised the dangling-alias error and <code>select a AS from</code> slipped through &mdash; against
-          the repo&rsquo;s own stated case-insensitivity. Reshaped on maintainer request so the keyword tests
-          live with the other token tests.
-        </li>
-      </ul>
-    </article>
-
-    <article class="card">
-      <div class="card-head">
-        <h3>xberg <span class="star-badge">&#9733; 9.5k</span></h3>
-        <span class="tag tag-merged">merged &middot; Rust</span>
-      </div>
-      <p class="card-org">High-performance text-extraction engine (Rust core)</p>
-      <ul class="card-list">
-        <li>
-          <a href="https://github.com/xberg-io/xberg/pull/2330" target="_blank" rel="noopener">#2330</a>
+          <a href="https://github.com/xberg-io/xberg/pull/2330" target="_blank" rel="noopener">xberg #2330</a>
           <span class="ship">v1.4.0</span>
-          Found and fixed a u64 timestamp-arithmetic overflow panic plus undecoded speaker
-          annotations in the WebVTT parser. <strong>Merged 43 minutes after opening.</strong>
-        </li>
-      </ul>
-    </article>
-
-    <article class="card">
-      <div class="card-head">
-        <h3>CUGA Apps <span class="star-badge">IBM Research</span></h3>
-        <span class="tag tag-merged">3 merged</span>
-      </div>
-      <p class="card-org">Agent applications for IBM&rsquo;s CUGA generalist-agent stack &middot; deployed from <code>main</code></p>
-      <ul class="card-list">
-        <li>
-          <a href="https://github.com/cuga-project/cuga-apps/pull/68" target="_blank" rel="noopener">#68</a>
-          <span class="ship">on main</span>
-          Rate-limit middleware silently re-executed endpoints that raised &mdash; self-found, with regression tests.
+          A u64 timestamp-arithmetic overflow panic in the Rust WebVTT parser, plus undecoded speaker
+          annotations. <strong>Merged 43 minutes after opening.</strong>
         </li>
         <li>
-          <a href="https://github.com/cuga-project/cuga-apps/pull/65" target="_blank" rel="noopener">#65</a>
-          <span class="ship">on main</span>
-          Pinned <code>mcp&lt;2.0</code> so every FastMCP server in the repo keeps starting.
+          <a href="https://github.com/neuml/txtai/pull/1589" target="_blank" rel="noopener">txtai #1589</a>
+          <span class="ship">on master</span>
+          The SQL parser tested its alias keyword without lowering the token, so the dangling-alias error
+          fired for <code>as</code> and not for <code>AS</code>. Reshaped on maintainer request.
         </li>
         <li>
-          <a href="https://github.com/cuga-project/cuga-apps/pull/64" target="_blank" rel="noopener">#64</a>
+          <a href="https://github.com/theluckystrike/100xagenticdev/pull/5" target="_blank" rel="noopener">100xagenticdev #5</a>
           <span class="ship">on main</span>
-          Markdown table rendering in agent answers.
+          Unit tests for <code>build_preset_tasks</code>.
         </li>
-        <li class="muted">
-          Plus <a href="https://github.com/theluckystrike/100xagenticdev/pull/5" target="_blank" rel="noopener">100xagenticdev #5</a>
-          &mdash; unit tests for <code>build_preset_tasks</code>.
+        <li>
+          <a href="https://github.com/search?q=is%3Apr+author%3AKrushil-Dhankecha+is%3Amerged&amp;type=pullrequests" target="_blank" rel="noopener" class="more-link">
+            All 18 merged pull requests on GitHub &rarr;
+          </a>
         </li>
       </ul>
     </article>
@@ -474,31 +438,6 @@
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // Long contribution lists make one card tower over the rest of its row.
-  // Show the first few and put the remainder behind a toggle. Done in JS so
-  // that with scripting off the full list is still in the page.
-  const SHOWN = 2;
-  // .card-wide spans the whole row, so its height costs nothing — leave it open.
-  document.querySelectorAll('#opensource .card:not(.card-wide) .card-list').forEach(list => {
-    const extra = [...list.children].slice(SHOWN);
-    if (extra.length < 2) return;          // not worth a button to hide one line
-
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'card-more';
-
-    const setOpen = (open) => {
-      extra.forEach(li => { li.hidden = !open; });
-      btn.textContent = open ? 'less' : 'more';
-      // The visible word is deliberately bare; screen readers get the count.
-      btn.setAttribute('aria-label', open ? 'Show less' : `Show ${extra.length} more`);
-      btn.setAttribute('aria-expanded', String(open));
-    };
-
-    setOpen(false);
-    btn.addEventListener('click', () => setOpen(btn.getAttribute('aria-expanded') !== 'true'));
-    list.after(btn);
-  });
 </script>
 </body>
 </html>
