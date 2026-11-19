@@ -157,10 +157,37 @@ code {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.1rem;
 }
-/* Open-source cards carry lists of wildly different length, so let each one be
-   its own height. Elsewhere the cards stretch, which keeps .card-link aligned
-   along the bottom of a row. */
-#opensource .cards { align-items: start; }
+/* The three open-source cards sit on one row and hold lists of wildly different
+   length, so they stretch to a shared height and the list scrolls inside the
+   card. One long list can no longer set the height of the row. */
+#opensource .cards { align-items: stretch; }
+#opensource .card:not(.card-wide) { height: 100%; }
+#opensource .card:not(.card-wide) .card-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: 17rem;
+  overflow-y: auto;
+  /* keeps the text clear of the scrollbar */
+  padding-right: 0.5rem;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(79, 195, 247, 0.35) transparent;
+}
+#opensource .card:not(.card-wide) .card-list:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+/* WebKit keeps the bar visible, which is the only cue that there is more below */
+#opensource .card:not(.card-wide) .card-list::-webkit-scrollbar { width: 6px; }
+#opensource .card:not(.card-wide) .card-list::-webkit-scrollbar-track { background: transparent; }
+#opensource .card:not(.card-wide) .card-list::-webkit-scrollbar-thumb {
+  background: rgba(79, 195, 247, 0.3);
+  border-radius: 999px;
+}
+#opensource .card:not(.card-wide) .card-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(79, 195, 247, 0.55);
+}
 .card {
   background: var(--card);
   border: 1px solid var(--card-edge);
@@ -202,24 +229,6 @@ code {
 
 .card-list { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
 .card-list li { color: var(--text-dim); font-size: 0.92rem; padding-left: 1rem; position: relative; overflow-wrap: anywhere; }
-.card-list li[hidden] { display: none; }
-/* Reads as one of the PR links above it, not as a control: same mono face,
-   weight and accent, and the 1rem indent clears the ▸ the entries use. */
-.card-more {
-  align-self: flex-start;
-  margin-top: 0.1rem;
-  padding: 0 0 0 1rem;
-  font-family: var(--mono);
-  font-size: 0.92rem;
-  font-weight: 600;
-  line-height: 1.6;
-  color: var(--accent);
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-}
-.card-more:hover,
-.card-more:focus-visible { text-decoration: underline; }
 .card-list li::before { content: "▸"; color: var(--accent); position: absolute; left: 0; }
 .card-list a { font-family: var(--mono); font-weight: 600; }
 .muted { opacity: 0.75; }
