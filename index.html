@@ -19,10 +19,10 @@
 <nav class="nav">
   <a href="#top" class="nav-logo">KD</a>
   <div class="nav-links">
-    <a href="#opensource">Open Source</a>
+    <a href="#skills">Skills</a>
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
+    <a href="#opensource">Open Source</a>
     <a href="#education">Education</a>
     <a href="#contact">Contact</a>
   </div>
@@ -71,8 +71,119 @@
 
 <main>
 
+<section id="skills" class="section reveal">
+  <h2><span class="section-kicker">01</span> Skills</h2>
+  <div class="skills">
+    <div class="skill-group">
+      <h3>Languages</h3>
+      <div class="pills"><span>Python</span><span>TypeScript</span><span>SQL</span><span>Rust (contributor)</span></div>
+    </div>
+    <div class="skill-group">
+      <h3>AI / ML</h3>
+      <div class="pills"><span>RAG &amp; Vector Search</span><span>LLM Agents</span><span>CrewAI</span><span>Docling</span><span>Whisper / ASR</span><span>scikit-learn</span><span>OpenCV</span></div>
+    </div>
+    <div class="skill-group">
+      <h3>Engineering</h3>
+      <div class="pills"><span>FastAPI</span><span>Streamlit</span><span>pytest &amp; TDD</span><span>Git / CI</span><span>REST APIs</span><span>MCP servers</span><span>Debugging &amp; root-cause analysis</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="section reveal">
+  <h2><span class="section-kicker">02</span> Experience</h2>
+  <p class="section-lead">Production AI engineering, shipped and maintained.</p>
+
+  <div class="cards">
+    <article class="card card-wide">
+      <div class="card-head">
+        <h3>AI Engineer · Savyasachi Infotech</h3>
+        <span class="tag tag-open">Aug 2023 — Present</span>
+      </div>
+      <p class="card-org">Surat, Gujarat, India</p>
+      <ul class="card-list">
+        <li>Developed and maintained <strong>hapie.ai</strong>, a GenAI platform that automates meeting
+        workflows — summaries, action items and decisions.</li>
+        <li>Built <strong>real-time transcription pipelines</strong> with Kafka, integrating Whisper and
+        SpeechBrain for speech-to-text, speaker diarization and speaker identification.</li>
+        <li>Designed <strong>RAG pipelines</strong> with LangChain, ChromaDB and local LLMs via Ollama
+        for context-aware summarization.</li>
+        <li>Created multi-channel integration flows syncing outputs to <strong>Jira, Trello and Azure
+        DevOps</strong>.</li>
+        <li>Ran <strong>LLM benchmarking and prompt engineering</strong>, improving response quality and
+        cutting latency for local model deployments.</li>
+        <li>Automated pipeline testing and vector-store validation across live and offline transcript
+        ingestion.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section id="projects" class="section reveal">
+  <h2><span class="section-kicker">03</span> Projects</h2>
+  <p class="section-lead">Systems I've designed and built end-to-end.</p>
+
+  <div class="cards">
+    <article class="card">
+      <div class="card-head">
+        <h3>HealthRAG</h3>
+        <span class="tag">RAG · FastAPI</span>
+      </div>
+      <p>Patient-oriented medical-knowledge RAG chatbot: vector search over curated medical
+      sources with a Streamlit front end and FastAPI backend.</p>
+      <a class="card-link" href="https://github.com/Krushil-Dhankecha/healthrag-ai-chatbot" target="_blank" rel="noopener">Source ↗</a>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <h3>Algo-Trading Systems</h3>
+        <span class="tag">Python · Live markets</span>
+      </div>
+      <p>Private intraday trading engines running on live broker APIs (ICICI Breeze): sector-rotation
+      strategy, 5-minute bar pipelines, order management with stop-losses, Telegram alerting and
+      PM2-managed deployment.</p>
+      <span class="card-link muted">Private repos — walkthrough on request</span>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <h3>Chess Mentor AI</h3>
+        <span class="tag">TypeScript · LLM</span>
+      </div>
+      <p>AI-powered chess assistant that explains positions and coaches moves.</p>
+      <a class="card-link" href="https://github.com/Krushil-Dhankecha/chess-mentor-ai" target="_blank" rel="noopener">Source ↗</a>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <h3>TaskyAI Voice Agent</h3>
+        <span class="tag">Python · Voice</span>
+      </div>
+      <p>Voice-driven task agent: speech in, actions out.</p>
+      <a class="card-link" href="https://github.com/Krushil-Dhankecha/TaskyAI-Voice-Agent" target="_blank" rel="noopener">Source ↗</a>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <h3>Customer Churn &amp; Uplift ML</h3>
+        <span class="tag">ML · scikit-learn</span>
+      </div>
+      <p>Churn prediction and uplift-modeling pipelines — feature engineering through evaluation.</p>
+      <a class="card-link" href="https://github.com/Krushil-Dhankecha/customer-churn-ml" target="_blank" rel="noopener">Source ↗</a>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <h3>Press Detection (OpenCV)</h3>
+        <span class="tag">Computer Vision</span>
+      </div>
+      <p>Industrial press-event detection from camera feeds with OpenCV.</p>
+      <a class="card-link" href="https://github.com/Krushil-Dhankecha/press-opencv" target="_blank" rel="noopener">Source ↗</a>
+    </article>
+  </div>
+</section>
+
 <section id="opensource" class="section reveal">
-  <h2><span class="section-kicker">01</span> Open-Source Contributions</h2>
+  <h2><span class="section-kicker">04</span> Open-Source Contributions</h2>
   <p class="section-lead">
     18 pull requests merged into other people&rsquo;s production code. Most were bugs I found by
     reading the source, reproduced with a failing test, and defended through maintainer review.
@@ -228,117 +339,6 @@
       </ul>
     </article>
 
-  </div>
-</section>
-
-<section id="experience" class="section reveal">
-  <h2><span class="section-kicker">02</span> Experience</h2>
-  <p class="section-lead">Production AI engineering, shipped and maintained.</p>
-
-  <div class="cards">
-    <article class="card card-wide">
-      <div class="card-head">
-        <h3>AI Engineer · Savyasachi Infotech</h3>
-        <span class="tag tag-open">Aug 2023 — Present</span>
-      </div>
-      <p class="card-org">Surat, Gujarat, India</p>
-      <ul class="card-list">
-        <li>Developed and maintained <strong>hapie.ai</strong>, a GenAI platform that automates meeting
-        workflows — summaries, action items and decisions.</li>
-        <li>Built <strong>real-time transcription pipelines</strong> with Kafka, integrating Whisper and
-        SpeechBrain for speech-to-text, speaker diarization and speaker identification.</li>
-        <li>Designed <strong>RAG pipelines</strong> with LangChain, ChromaDB and local LLMs via Ollama
-        for context-aware summarization.</li>
-        <li>Created multi-channel integration flows syncing outputs to <strong>Jira, Trello and Azure
-        DevOps</strong>.</li>
-        <li>Ran <strong>LLM benchmarking and prompt engineering</strong>, improving response quality and
-        cutting latency for local model deployments.</li>
-        <li>Automated pipeline testing and vector-store validation across live and offline transcript
-        ingestion.</li>
-      </ul>
-    </article>
-  </div>
-</section>
-
-<section id="projects" class="section reveal">
-  <h2><span class="section-kicker">03</span> Projects</h2>
-  <p class="section-lead">Systems I've designed and built end-to-end.</p>
-
-  <div class="cards">
-    <article class="card">
-      <div class="card-head">
-        <h3>HealthRAG</h3>
-        <span class="tag">RAG · FastAPI</span>
-      </div>
-      <p>Patient-oriented medical-knowledge RAG chatbot: vector search over curated medical
-      sources with a Streamlit front end and FastAPI backend.</p>
-      <a class="card-link" href="https://github.com/Krushil-Dhankecha/healthrag-ai-chatbot" target="_blank" rel="noopener">Source ↗</a>
-    </article>
-
-    <article class="card">
-      <div class="card-head">
-        <h3>Algo-Trading Systems</h3>
-        <span class="tag">Python · Live markets</span>
-      </div>
-      <p>Private intraday trading engines running on live broker APIs (ICICI Breeze): sector-rotation
-      strategy, 5-minute bar pipelines, order management with stop-losses, Telegram alerting and
-      PM2-managed deployment.</p>
-      <span class="card-link muted">Private repos — walkthrough on request</span>
-    </article>
-
-    <article class="card">
-      <div class="card-head">
-        <h3>Chess Mentor AI</h3>
-        <span class="tag">TypeScript · LLM</span>
-      </div>
-      <p>AI-powered chess assistant that explains positions and coaches moves.</p>
-      <a class="card-link" href="https://github.com/Krushil-Dhankecha/chess-mentor-ai" target="_blank" rel="noopener">Source ↗</a>
-    </article>
-
-    <article class="card">
-      <div class="card-head">
-        <h3>TaskyAI Voice Agent</h3>
-        <span class="tag">Python · Voice</span>
-      </div>
-      <p>Voice-driven task agent: speech in, actions out.</p>
-      <a class="card-link" href="https://github.com/Krushil-Dhankecha/TaskyAI-Voice-Agent" target="_blank" rel="noopener">Source ↗</a>
-    </article>
-
-    <article class="card">
-      <div class="card-head">
-        <h3>Customer Churn &amp; Uplift ML</h3>
-        <span class="tag">ML · scikit-learn</span>
-      </div>
-      <p>Churn prediction and uplift-modeling pipelines — feature engineering through evaluation.</p>
-      <a class="card-link" href="https://github.com/Krushil-Dhankecha/customer-churn-ml" target="_blank" rel="noopener">Source ↗</a>
-    </article>
-
-    <article class="card">
-      <div class="card-head">
-        <h3>Press Detection (OpenCV)</h3>
-        <span class="tag">Computer Vision</span>
-      </div>
-      <p>Industrial press-event detection from camera feeds with OpenCV.</p>
-      <a class="card-link" href="https://github.com/Krushil-Dhankecha/press-opencv" target="_blank" rel="noopener">Source ↗</a>
-    </article>
-  </div>
-</section>
-
-<section id="skills" class="section reveal">
-  <h2><span class="section-kicker">04</span> Skills</h2>
-  <div class="skills">
-    <div class="skill-group">
-      <h3>Languages</h3>
-      <div class="pills"><span>Python</span><span>TypeScript</span><span>SQL</span><span>Rust (contributor)</span></div>
-    </div>
-    <div class="skill-group">
-      <h3>AI / ML</h3>
-      <div class="pills"><span>RAG &amp; Vector Search</span><span>LLM Agents</span><span>CrewAI</span><span>Docling</span><span>Whisper / ASR</span><span>scikit-learn</span><span>OpenCV</span></div>
-    </div>
-    <div class="skill-group">
-      <h3>Engineering</h3>
-      <div class="pills"><span>FastAPI</span><span>Streamlit</span><span>pytest &amp; TDD</span><span>Git / CI</span><span>REST APIs</span><span>MCP servers</span><span>Debugging &amp; root-cause analysis</span></div>
-    </div>
   </div>
 </section>
 
